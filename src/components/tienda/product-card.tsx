@@ -3,7 +3,9 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { Badge } from "@/components/ui/feedback";
 import { IconImage } from "@/components/ui/icons";
+import { paraCarrito } from "@/lib/carrito";
 import type { Producto } from "@/server/types";
+import { BotonAgregarRapido } from "./carrito-ui";
 import { Precio } from "./moneda";
 
 export function ImagenProducto({
@@ -69,7 +71,11 @@ export function ProductCard({
         {producto.unidad && <p className="text-xs text-slate-500">{producto.unidad}</p>}
         <div className="mt-auto flex items-end justify-between gap-2 pt-1">
           <Precio centavos={producto.precioCentavos} />
-          {accion && !agotado && <div className="relative z-10">{accion}</div>}
+          {!agotado && (
+            <div className="relative z-10">
+              {accion ?? <BotonAgregarRapido producto={paraCarrito(producto)} />}
+            </div>
+          )}
         </div>
       </div>
     </article>

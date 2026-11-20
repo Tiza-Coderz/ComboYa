@@ -1,3 +1,4 @@
+import { Avisos, EnlaceCarrito, EnlaceCarritoInferior } from "@/components/tienda/carrito-ui";
 import { Footer } from "@/components/tienda/footer";
 import { Header, NavegacionInferior } from "@/components/tienda/header";
 import { MonedaProvider } from "@/components/tienda/moneda";
@@ -14,12 +15,13 @@ export default async function TiendaLayout({ children }: { children: React.React
       >
         Saltar al contenido
       </a>
-      <Header />
+      <Header carrito={<EnlaceCarrito />} />
       <main id="contenido" className="mx-auto max-w-6xl px-4 py-6 sm:py-8">
         {children}
       </main>
       <Footer config={config} demo={publicEnv.NEXT_PUBLIC_DEMO_MODE} />
-      <NavegacionInferior />
+      <NavegacionInferior carrito={<EnlaceCarritoInferior />} />
+      <Avisos />
     </MonedaProvider>
   );
 }

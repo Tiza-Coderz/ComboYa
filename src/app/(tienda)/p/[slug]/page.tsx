@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { AgregarAlCarrito } from "@/components/tienda/carrito-ui";
 import { Precio } from "@/components/tienda/moneda";
 import { GridProductos, ImagenProducto, ProductCard } from "@/components/tienda/product-card";
 import { Seccion } from "@/components/tienda/seccion";
@@ -10,6 +11,7 @@ import { IconCheck, IconShare, IconTruck, IconWhatsApp } from "@/components/ui/i
 import { aDolares, formatearMoneda } from "@/domain/money";
 import { ahorroCombo } from "@/domain/pricing";
 import { enlaceWhatsApp, mensajeCompartirProducto } from "@/domain/whatsapp";
+import { paraCarrito } from "@/lib/carrito";
 import { urlAbsoluta } from "@/lib/utils";
 import {
   combosConProducto,
@@ -149,11 +151,16 @@ export default async function ProductoPage({ params }: { params: Params }) {
             )}
           </div>
 
-          <div id="comprar" className="space-y-3" data-producto={producto.id}>
-            {agotado && (
+          <div id="comprar">
+            {agotado ? (
               <p className="text-sm text-slate-600">
                 Este producto está agotado. Escríbanos y le avisamos cuando vuelva.
               </p>
+            ) : (
+              <AgregarAlCarrito
+                producto={paraCarrito(producto)}
+                maximo={producto.stock ?? undefined}
+              />
             )}
           </div>
 
