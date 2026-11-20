@@ -86,7 +86,7 @@ export default async function Imagen({ params }: { params: Promise<{ slug: strin
           {cup !== null && (
             <div style={{ fontSize: 30, color: "#d5e8f4" }}>
               {/* Solo caracteres de la fuente incluida en next/og (sin "≈"). */}
-              {`Aprox. ${formatearMoneda(cup, "CUP").replace(/00a0/g, " ")}`}
+              {`Aprox. ${formatearMoneda(cup, "CUP").replaceAll(String.fromCharCode(160), " ")}`}
             </div>
           )}
         </div>
