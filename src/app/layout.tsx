@@ -1,13 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { publicEnv } from "@/lib/env";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(publicEnv.NEXT_PUBLIC_SITE_URL),
   title: {
     default: "ComboYa — Combos para su familia en La Habana",
     template: "%s · ComboYa",
@@ -15,7 +11,15 @@ export const metadata: Metadata = {
   description:
     "Compre desde el exterior combos de comida, aseo y bebidas. Entregamos a su familia en La Habana en 24–72 horas.",
   applicationName: "ComboYa",
-  openGraph: { locale: "es_CU", siteName: "ComboYa", type: "website" },
+  keywords: ["combos Cuba", "enviar comida a Cuba", "La Habana", "mercado online", "mipyme"],
+  openGraph: {
+    locale: "es_CU",
+    siteName: "ComboYa",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
+  appleWebApp: { capable: true, title: "ComboYa", statusBarStyle: "default" },
+  formatDetection: { telephone: false },
 };
 
 export const viewport: Viewport = {
@@ -26,7 +30,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="es-CU" className={inter.variable}>
+    <html lang="es-CU">
       <body className="min-h-dvh font-sans">{children}</body>
     </html>
   );
