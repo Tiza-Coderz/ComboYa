@@ -27,6 +27,7 @@ const eslintConfig = [
       "coverage/**",
       "next-env.d.ts",
       "supabase/.temp/**",
+      "public/**",
     ],
   },
 ];
