@@ -8,7 +8,6 @@ labels: bug
 
 **Qué esperaba**
 
-**Pasos para reproducir**
-1.
+**Pasos para reproducir** 1.
 
 **Dispositivo / navegador**

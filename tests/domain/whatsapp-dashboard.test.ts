@@ -85,13 +85,28 @@ describe("WhatsApp", () => {
   });
 
   it("contacta al comprador según el método de pago", () => {
-    const base = { compradorNombre: "Raúl Martínez", codigo: "CY-1", nombreNegocio: "ComboYa", total: 5000 };
-    expect(mensajeContactoComprador({ ...base, metodoPago: "enlace_pago" })).toContain("enlace de pago por $50.00");
-    expect(mensajeContactoComprador({ ...base, metodoPago: "efectivo_entrega" })).toContain("en efectivo");
+    const base = {
+      compradorNombre: "Raúl Martínez",
+      codigo: "CY-1",
+      nombreNegocio: "ComboYa",
+      total: 5000,
+    };
+    expect(mensajeContactoComprador({ ...base, metodoPago: "enlace_pago" })).toContain(
+      "enlace de pago por $50.00",
+    );
+    expect(mensajeContactoComprador({ ...base, metodoPago: "efectivo_entrega" })).toContain(
+      "en efectivo",
+    );
   });
 
   it("comparte un producto", () => {
-    expect(mensajeCompartirProducto({ nombre: "Combo Cárnico", precioCentavos: 5900, url: "https://x/p/combo-carnico" })).toBe(
+    expect(
+      mensajeCompartirProducto({
+        nombre: "Combo Cárnico",
+        precioCentavos: 5900,
+        url: "https://x/p/combo-carnico",
+      }),
+    ).toBe(
       "Mira este Combo Cárnico por $59.00 con entrega en La Habana: https://x/p/combo-carnico",
     );
   });
@@ -152,7 +167,9 @@ describe("dashboard", () => {
         }),
         pedido({
           municipio: "Playa",
-          items: [{ productoId: null, nombre: "Producto borrado", cantidad: 1, precioCentavos: 100 }],
+          items: [
+            { productoId: null, nombre: "Producto borrado", cantidad: 1, precioCentavos: 100 },
+          ],
         }),
       ],
       { dias: 30, hoy, top: 2 },

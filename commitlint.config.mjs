@@ -1,4 +1,4 @@
-export default {
+const config = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     // Los mensajes van en español; permitimos mayúsculas en nombres propios.
@@ -6,3 +6,5 @@ export default {
     "body-max-line-length": [1, "always", 120],
   },
 };
+
+export default config;

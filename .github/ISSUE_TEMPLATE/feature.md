@@ -9,4 +9,5 @@ labels: enhancement
 **Propuesta**
 
 **Criterios de aceptación**
+
 - [ ]

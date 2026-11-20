@@ -170,9 +170,9 @@ describe("formularios de administración", () => {
     });
     expect(r.whatsapp_negocio).toBe("5355555555");
     expect(r.email_contacto).toBeUndefined();
-    expect(
-      configuracionSchema.safeParse({ ...r, email_contacto: "no-es-correo" }).success,
-    ).toBe(false);
+    expect(configuracionSchema.safeParse({ ...r, email_contacto: "no-es-correo" }).success).toBe(
+      false,
+    );
   });
 
   it("categoría y login", () => {

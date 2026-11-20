@@ -262,12 +262,20 @@ async function main() {
   const tareas = [];
   for (const [categoria, slug, nombre, unidad] of PRODUCTOS) {
     tareas.push(
-      webp(svgProducto({ nombre, unidad, slug, categoria }), path.join(CATALOGO, "productos", `${slug}.webp`), 640),
+      webp(
+        svgProducto({ nombre, unidad, slug, categoria }),
+        path.join(CATALOGO, "productos", `${slug}.webp`),
+        640,
+      ),
     );
   }
   for (const [slug, nombre, unidad] of COMBOS) {
     tareas.push(
-      webp(svgProducto({ nombre, unidad, slug, categoria: "combos" }), path.join(CATALOGO, "combos", `${slug}.webp`), 640),
+      webp(
+        svgProducto({ nombre, unidad, slug, categoria: "combos" }),
+        path.join(CATALOGO, "combos", `${slug}.webp`),
+        640,
+      ),
     );
   }
   for (const v of ["familia", "mega", "cumpleanos"]) {
