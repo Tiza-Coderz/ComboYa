@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { BotonRestablecerDemo } from "@/components/admin/formularios-ajustes";
 import { LoginForm } from "@/components/admin/login-form";
 import { Logo } from "@/components/tienda/header";
 import { Alert } from "@/components/ui/feedback";
@@ -31,6 +32,14 @@ export default async function LoginPage({ searchParams }: { searchParams: Search
           )}
           <LoginForm demo={demo} />
         </div>
+        {demo && (
+          <div className="space-y-2 rounded-2xl bg-white p-4 text-sm ring-1 ring-slate-200">
+            <p className="text-slate-600">
+              ¿Alguien dejó la demo desordenada? Vuelva a los datos de ejemplo:
+            </p>
+            <BotonRestablecerDemo compacto />
+          </div>
+        )}
         <p className="text-center text-sm">
           <Link href="/" className="text-brand-700 hover:underline">
             ← Volver a la tienda
