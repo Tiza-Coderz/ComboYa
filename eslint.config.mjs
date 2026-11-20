@@ -15,7 +15,7 @@ const eslintConfig = [
     },
   },
   {
-    files: ["scripts/**/*.ts"],
+    files: ["scripts/**"],
     rules: { "no-console": "off" },
   },
   {

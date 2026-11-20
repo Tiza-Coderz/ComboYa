@@ -20,7 +20,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "db:push": "pnpm dlx supabase@2 db push --db-url \"$SUPABASE_DB_URL\"",
-    "seed": "node --env-file=.env.local scripts/seed.ts",
+    "seed": "node --env-file=.env.local scripts/seed.mts",
     "imagenes": "node scripts/generar-imagenes.mjs",
     "prepare": "husky || true"
   },
