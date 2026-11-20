@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { RegistrarServiceWorker } from "@/components/registrar-sw";
 import { publicEnv } from "@/lib/env";
 import "./globals.css";
 
@@ -31,7 +32,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es-CU">
-      <body className="min-h-dvh font-sans">{children}</body>
+      <body className="min-h-dvh font-sans">
+        {children}
+        <RegistrarServiceWorker />
+      </body>
     </html>
   );
 }
