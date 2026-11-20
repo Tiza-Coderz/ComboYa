@@ -446,7 +446,7 @@ export function Checkout({ zonas }: { zonas: Zona[] }) {
               >
                 Atrás
               </Button>
-              <Button type="submit" tamano="lg" className="flex-1" disabled={enviando}>
+              <Button type="submit" tamano="lg" className="sm:flex-1" disabled={enviando}>
                 {enviando ? (
                   <>
                     <Spinner /> Registrando su pedido…
