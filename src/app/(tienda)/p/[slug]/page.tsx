@@ -22,6 +22,11 @@ import {
 
 export const revalidate = 60;
 
+/** Sin rutas en el build: cada ficha se genera en la primera visita y queda en caché (ISR). */
+export async function generateStaticParams() {
+  return [];
+}
+
 type Params = Promise<{ slug: string }>;
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
