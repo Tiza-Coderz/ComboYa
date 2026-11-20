@@ -2,14 +2,14 @@
 
 ## Flujo de ramas (Git Flow)
 
-| Rama | Propósito |
-|---|---|
-| `main` | Producción. Solo recibe merges de `release/*` y `hotfix/*`, siempre con tag `vX.Y.Z`. |
-| `develop` | Integración. Rama por defecto para PRs. |
-| `feature/<nombre>` | Nueva funcionalidad. Sale de `develop`, vuelve a `develop` por PR. |
-| `fix/<nombre>` | Corrección no urgente. Igual que `feature/*`. |
-| `release/X.Y.Z` | Estabilización: versión, CHANGELOG. Merge a `main` (+tag) y de vuelta a `develop`. |
-| `hotfix/X.Y.Z` | Urgente en producción. Sale de `main`, merge a `main` (+tag) y `develop`. |
+| Rama               | Propósito                                                                             |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| `main`             | Producción. Solo recibe merges de `release/*` y `hotfix/*`, siempre con tag `vX.Y.Z`. |
+| `develop`          | Integración. Rama por defecto para PRs.                                               |
+| `feature/<nombre>` | Nueva funcionalidad. Sale de `develop`, vuelve a `develop` por PR.                    |
+| `fix/<nombre>`     | Corrección no urgente. Igual que `feature/*`.                                         |
+| `release/X.Y.Z`    | Estabilización: versión, CHANGELOG. Merge a `main` (+tag) y de vuelta a `develop`.    |
+| `hotfix/X.Y.Z`     | Urgente en producción. Sale de `main`, merge a `main` (+tag) y `develop`.             |
 
 ```bash
 git switch develop && git pull

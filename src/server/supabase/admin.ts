@@ -7,7 +7,11 @@ import { getServerEnv, publicEnv } from "@/lib/env";
  * muy acotados (reset de la demo, subida de imágenes del seed).
  */
 export function createSupabaseAdminClient() {
-  return createClient(publicEnv.NEXT_PUBLIC_SUPABASE_URL, getServerEnv().SUPABASE_SERVICE_ROLE_KEY, {
-    auth: { persistSession: false, autoRefreshToken: false },
-  });
+  return createClient(
+    publicEnv.NEXT_PUBLIC_SUPABASE_URL,
+    getServerEnv().SUPABASE_SERVICE_ROLE_KEY,
+    {
+      auth: { persistSession: false, autoRefreshToken: false },
+    },
+  );
 }

@@ -8,7 +8,12 @@ export interface PedidoDashboard {
   estado: EstadoPedido;
   estadoPago: EstadoPago;
   municipio: string;
-  items: readonly { productoId: string | null; nombre: string; cantidad: number; precioCentavos: number }[];
+  items: readonly {
+    productoId: string | null;
+    nombre: string;
+    cantidad: number;
+    precioCentavos: number;
+  }[];
 }
 
 export interface ResumenDashboard {
@@ -98,6 +103,8 @@ export function resumirPedidos(
     topProductos: [...productos.values()]
       .sort((a, b) => b.unidades - a.unidades || b.ingresos - a.ingresos)
       .slice(0, opciones.top ?? 5),
-    porMunicipio: [...municipios.values()].sort((a, b) => b.pedidos - a.pedidos || b.total - a.total),
+    porMunicipio: [...municipios.values()].sort(
+      (a, b) => b.pedidos - a.pedidos || b.total - a.total,
+    ),
   };
 }

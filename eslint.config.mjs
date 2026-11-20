@@ -19,7 +19,15 @@ const eslintConfig = [
     rules: { "no-console": "off" },
   },
   {
-    ignores: ["node_modules/**", ".next/**", "out/**", "build/**", "coverage/**", "next-env.d.ts", "supabase/.temp/**"],
+    ignores: [
+      "node_modules/**",
+      ".next/**",
+      "out/**",
+      "build/**",
+      "coverage/**",
+      "next-env.d.ts",
+      "supabase/.temp/**",
+    ],
   },
 ];
 

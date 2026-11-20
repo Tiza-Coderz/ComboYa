@@ -1,5 +1,10 @@
 import { convertir, formatearMoneda, type Tasas } from "./money";
-import { ETIQUETA_ESTADO, ETIQUETA_METODO, type EstadoPedido, type MetodoPago } from "./order-status";
+import {
+  ETIQUETA_ESTADO,
+  ETIQUETA_METODO,
+  type EstadoPedido,
+  type MetodoPago,
+} from "./order-status";
 import { telefonoParaWhatsApp } from "./phone";
 
 /** Enlace wa.me con el mensaje ya escrito. */
@@ -25,7 +30,8 @@ export interface ResumenPedidoWhatsApp {
 /** Mensaje que el comprador envía al negocio al confirmar el pedido. */
 export function mensajeNuevoPedido(r: ResumenPedidoWhatsApp): string {
   const lineas = r.items.map(
-    (i) => `• ${i.cantidad} × ${i.nombre} — ${formatearMoneda(i.precioCentavos * i.cantidad, "USD")}`,
+    (i) =>
+      `• ${i.cantidad} × ${i.nombre} — ${formatearMoneda(i.precioCentavos * i.cantidad, "USD")}`,
   );
   const cup = r.tasas ? convertir(r.total, "CUP", r.tasas) : null;
   return [
@@ -35,7 +41,8 @@ export function mensajeNuevoPedido(r: ResumenPedidoWhatsApp): string {
     "",
     `Subtotal: ${formatearMoneda(r.subtotal, "USD")}`,
     `Envío a ${r.municipio}: ${formatearMoneda(r.envio, "USD")}`,
-    `*Total: ${formatearMoneda(r.total, "USD")}*` + (cup !== null ? ` (≈ ${formatearMoneda(cup, "CUP")})` : ""),
+    `*Total: ${formatearMoneda(r.total, "USD")}*` +
+      (cup !== null ? ` (≈ ${formatearMoneda(cup, "CUP")})` : ""),
     "",
     `Pago: ${ETIQUETA_METODO[r.metodoPago]}`,
     `Compra: ${r.compradorNombre} (${r.compradorPais})`,
@@ -88,6 +95,10 @@ export function mensajeContactoComprador(p: {
   return `Hola, ${nombre}. Le escribimos de ${p.nombreNegocio} sobre su pedido *${p.codigo}*. ${cobro}`;
 }
 
-export function mensajeCompartirProducto(p: { nombre: string; precioCentavos: number; url: string }) {
+export function mensajeCompartirProducto(p: {
+  nombre: string;
+  precioCentavos: number;
+  url: string;
+}) {
   return `Mira este ${p.nombre} por ${formatearMoneda(p.precioCentavos, "USD")} con entrega en La Habana: ${p.url}`;
 }
